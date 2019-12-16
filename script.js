@@ -27,6 +27,31 @@ var inputObj = {
 var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+// BONUS EVENT LISTENER
+var copyBtn = document.querySelector("#copyToClip");
+copyBtn.addEventListener("click", copyToClipboard);
+
+////////////////////////////////////////////////////////
+// Write password to the #password input
+////////////////////////////////////////////
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  if(password) { //added this test to make sure copy to clip doesn't enable on non validated input
+  passwordText.value = password;
+
+  
+   copyBtn.removeAttribute("disabled");
+   //copyBtn.focus("password");
+  } else { 
+    passwordText.value = "You must ask for a combination of characters between 8 and 128 characters in length";
+  }
+}
+///////////////////////////////////////
+// prompt user and call all other functions for validation and randomize
+/////////////////////////////////////////
 function generatePassword() {
   // do {
     inputObj.passLength = prompt("what's the length?");
@@ -41,7 +66,8 @@ function generatePassword() {
     listOfChars = getChars(inputObj);
     randomChars = randomize(listOfChars);
   } else {
-    return "You must ask for a combination of characters between 8 and 128 characters in length";
+    //return "You must ask for a combination of characters between 8 and 128 characters in length";
+    return 0;
   }
   // test code ////////////////////////////////
 
@@ -50,19 +76,9 @@ function generatePassword() {
   console.log("random" + randomChars);
   return randomChars;
 }
-////////////////////////////////////////////////////////
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-  var copyBtn = document.querySelector("#copyToClip");
-   copyBtn.removeAttribute("disabled");
-   //copyBtn.focus("password");
-}
-
+//////////////////////////////////////////////
+// copies id #password to clipboard
+/////////////////////////////////////////
 function copyToClipboard() {
   console.log("clip it");
   var passText = document.getElementById("password");
@@ -74,7 +90,6 @@ function copyToClipboard() {
 }
 
 
-// BONUS EVENT LISTENER
 
 /////////////////////////
 // randomizes the list/array that is passed into it. Only external list no objects.
