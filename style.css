@@ -11,7 +11,8 @@ body {
 h1 {
     margin: 20px auto 50px auto;
     text-align: center;
-    font-size: 40px;
+    /* font-size: 40px; */
+    font-size: calc(100% + 1vw + 1vh);
 }
 h2 {
     margin-top: 25px;
@@ -30,6 +31,8 @@ textarea {
 }
 .btn {
     border-radius: 30px;
+    margin: 5px;
+    font-size: calc(50% + 1vw );
 }
 .card {
     width: 95%;
@@ -44,4 +47,9 @@ textarea {
 }
 .card-body{
     width: 100%;
+}
+@media (max-width: 605px) {
+    #copyToClip {
+        float:none;
+    }
 }
