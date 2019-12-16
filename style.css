@@ -23,6 +23,7 @@ textarea {
     border: dashed 2px #c0c7cf;
     resize: none;
     border-radius: 5px;
+    text-align: center;
 }
 #copyToClip {
     float: right;
