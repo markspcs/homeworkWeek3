@@ -22,7 +22,7 @@ After the password is generated the "copy to clipboard" button may used to put t
 
 
 
-(./myScreenShot.png)
+![screen shot](./myScreenShot.png)
 
 ## Installation
 
