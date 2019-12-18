@@ -44,7 +44,6 @@ function writePassword() {
 
   
    copyBtn.removeAttribute("disabled");
-   //copyBtn.focus("password");
   } else { 
     passwordText.value = "You must ask for a combination of characters between 8 and 128 characters in length";
   }
@@ -53,14 +52,13 @@ function writePassword() {
 // prompt user and call all other functions for validation and randomize
 /////////////////////////////////////////
 function generatePassword() {
-  // do {
+ 
     inputObj.passLength = prompt("what's the length?");
     inputObj.asciiLower.length = prompt("how many ascii lower case characters?");
     inputObj.asciiUpper.length = prompt("how many ascii upper case characters");
     inputObj.numArg.length = prompt("how many numbers?");
     inputObj.specialArg.length = prompt("how many special characters?");
 
-  // } while (validateLength(inputObj));
   if (validateLength(inputObj)) {
     delete inputObj.passLength;
     listOfChars = getChars(inputObj);
@@ -71,9 +69,9 @@ function generatePassword() {
   }
   // test code ////////////////////////////////
 
-  console.log("continued code");
-  console.log('here');
-  console.log("random" + randomChars);
+  // console.log("continued code");
+  // console.log('here');
+  // console.log("random" + randomChars);
   return randomChars;
 }
 //////////////////////////////////////////////
@@ -102,7 +100,7 @@ function randomize(chars) {
     randomArr.push(chars[rIndex]);
     chars.splice(rIndex, 1);
   }
-  console.log(randomArr);
+  //console.log(randomArr);
   var randomString = randomArr.join("");
   return randomString;
 }
@@ -122,16 +120,15 @@ function getChars(inputObj) {
       returnArr.push(currentChars[rIndex]);
     }
   }
-  console.log(returnArr);
+  //console.log(returnArr);
   return returnArr;
 }
 //////////////////////////////////////////
 // validate that ascii num and special args add up to total length
 ////////////////////////////////////////////////////
 function validateLength(inputObj) {
-  //console.log(inputObj.asciiLength + inputObj.specialArg + inputObj.numArg);
   let overAllLen = Number(inputObj.asciiLower.length) + Number(inputObj.asciiUpper.length) + Number(inputObj.specialArg.length) + Number(inputObj.numArg.length);
-  console.log(overAllLen);
+  //console.log(overAllLen);
   if (inputObj.passLength > 7 && inputObj.passLength < 129) {
     if (overAllLen === Number(inputObj.passLength)) {
       return 1;
